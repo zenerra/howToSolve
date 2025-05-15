@@ -74,7 +74,6 @@ using (StreamWriter sw = File.CreateText("filename.txt"))
 ### LINQ Examples
 
 
-```
 
 #### 1. Aggregation (Count, Sum, Average, Max, Min)
 Calculate statistics.
