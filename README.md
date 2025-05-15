@@ -5,7 +5,6 @@
 ### Useful Webpages
 - [StackOverflow](https://stackoverflow.com/)
 - [W3Schools](https://www.w3schools.com/)
-- [Merlinvizsga](https://merlinvizsga.hu/) (For Node modules setup)
 - [Bootstrap](https://getbootstrap.com/)
 
 ### If XAMPP Won't Start
