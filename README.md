@@ -56,6 +56,78 @@ using (StreamWriter sw = File.CreateText("filename.txt"))
     sw.WriteLine("...");
 }
 ```
+### LINQ Examples
+
+
+```
+
+## 1. Filtering (Where)
+Select people older than 25.
+
+
+
+```csharp
+var olderThan25 = people.Where(p => p.Age > 25);
+```
+
+#### 2. Sorting (OrderBy, ThenBy)
+Sort people by age, then by name.
+
+
+```csharp
+var sortedPeople = people.OrderBy(p => p.Age).ThenBy(p => p.Name);
+```
+
+#### 3. Selecting Specific Fields (Select)
+Get a list of names and salaries.
+
+```csharp
+var namesAndSalaries = people.Select(p => new { p.Name, p.Salary });
+```
+
+#### 4. Grouping (GroupBy)
+Group people by age.
+
+
+```csharp
+var groupedByAge = people.GroupBy(p => p.Age)
+                         .Select(g => new { Age = g.Key, People = g });
+```
+
+
+#### 5. Aggregation (Count, Sum, Average, Max, Min)
+Calculate statistics.
+
+```csharp
+int count = people.Count(); // Total people
+int over30Count = people.Count(p => p.Age > 30); // People over 30
+double totalSalary = people.Sum(p => p.Salary); // Total salary
+double avgSalary = people.Average(p => p.Salary); // Average salary
+int maxAge = people.Max(p => p.Age); // Oldest age
+```
+
+#### 7. First, Last, Single
+Get specific elements.
+
+```csharp
+Person firstPerson = people.First(); // First person
+Person lastPerson = people.Last(); // Last person
+Person singlePerson = people.Single(p => p.Id == 1); // Person with Id 1
+// Use FirstOrDefault, LastOrDefault, SingleOrDefault to avoid exceptions
+Person firstOrNull = people.FirstOrDefault(p => p.Age > 40); // Null if not found
+```
+
+#### 8. Any and All
+Check conditions.
+
+```csharp
+bool hasYoung = people.Any(p => p.Age < 25); // True if any person is under 25
+bool allHighEarners = people.All(p => p.Salary > 40000); // True if all earn > 40k
+```
+
+#### Tips for Effective LINQ
+- **Performance**: Avoid multiple enumerations; materialize results with `.ToList()` if needed.
+- **Debugging**: Break complex queries into smaller steps.
 
 ## Backend
 
