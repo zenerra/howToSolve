@@ -18,20 +18,26 @@
 
 ### Classes and Constructors
 ```csharp
-class Ember
-{
-    public int azonosito { get; set; }
-    
-    public Ember(int azonosito)
-    {
-        this.azonosito = azonosito;
-    }
-}
+ class Person
+ {
+     public int id { get; set; }
+     public double average { get; set; }
+     public string name { get; set; }
+     public DateTime date { get; set; }
+
+     public Sportolo(int id, double average, string name, DateTime date)
+     {
+         this.id = id;
+         this.average = average;
+         this.name = name;
+         this.date = date;
+     }
+ }
 ```
 
 ### Reading a File
 ```csharp
-List<Ember> emberek = new List<Ember>();
+List<Person> peopleList = new List<Person>();
 
 using (StreamReader sr = new StreamReader("filename.txt"))
 {
@@ -39,12 +45,13 @@ using (StreamReader sr = new StreamReader("filename.txt"))
     {
         string line = sr.ReadLine();
         string[] data = line.Split(';');
-        int azonosito = int.Parse(data[0]);
+        int id = int.Parse(data[0]);
         data[1] = data[1].Replace(',', '.');
         double atlag = double.Parse(data[1]);
-        DateTime datum = Convert.ToDateTime(data[5]);
-        Ember ember = new Ember(azonosito, atlag, datum);
-        emberek.Add(ember);
+        string name = data[2];
+        DateTime date = Convert.ToDateTime(data[3]);
+        Person personList = new Person(id, average, name, date);
+        peopleList.Add(person);
     }
 }
 ```
