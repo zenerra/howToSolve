@@ -167,7 +167,7 @@ const db = mysql.createConnection({
 // API endpoint to get nameday by date
 app.get("/api/nameday/", (req, res) => {
   // Extract "date" from query parameter
-  const date = req.query.date;
+  const date = req.query.date; // KEY
 
   // Check if date is specified
   if (!date) {
@@ -190,7 +190,7 @@ db.query(sql, (err, result) => {
     const nameday = result[0];
 
 // Send response with formatted date and nameday data
-    res.json({
+    res.json({ // KEY
       date: `${monthName} ${day}.`,
       name1: nameday.name1,
       name2: nameday.name2,
