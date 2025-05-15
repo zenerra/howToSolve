@@ -86,7 +86,7 @@ double avgSalary = people.Average(p => p.Salary); // Average salary
 int maxAge = people.Max(p => p.Age); // Oldest age
 ```
 
-## 2. Filtering (Where)
+#### 2. Filtering (Where)
 Select people older than 25.
 
 ```csharp
