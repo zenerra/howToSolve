@@ -16,7 +16,7 @@
 ## Desktop
 
 ### Text manipulation
-```
+```csharp
 Replace(',','-');  // 2019-2-12
 Trim('-');  // 2019212 
 Split(',');  // {apple, banana, orange}
@@ -74,8 +74,9 @@ using (StreamWriter sw = File.CreateText("filename.txt"))
 }
 ```
 ### LINQ Examples
-
-
+```csharp
+using System.Linq;
+```
 
 #### 1. Aggregation (Count, Sum, Average, Max, Min)
 Calculate statistics.
