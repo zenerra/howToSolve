@@ -76,41 +76,7 @@ using (StreamWriter sw = File.CreateText("filename.txt"))
 
 ```
 
-## 1. Filtering (Where)
-Select people older than 25.
-
-
-
-```csharp
-var olderThan25 = people.Where(p => p.Age > 25);
-```
-
-#### 2. Sorting (OrderBy, ThenBy)
-Sort people by age, then by name.
-
-
-```csharp
-var sortedPeople = people.OrderBy(p => p.Age).ThenBy(p => p.Name);
-```
-
-#### 3. Selecting Specific Fields (Select)
-Get a list of names and salaries.
-
-```csharp
-var namesAndSalaries = people.Select(p => new { p.Name, p.Salary });
-```
-
-#### 4. Grouping (GroupBy)
-Group people by age.
-
-
-```csharp
-var groupedByAge = people.GroupBy(p => p.Age)
-                         .Select(g => new { Age = g.Key, People = g });
-```
-
-
-#### 5. Aggregation (Count, Sum, Average, Max, Min)
+#### 1. Aggregation (Count, Sum, Average, Max, Min)
 Calculate statistics.
 
 ```csharp
@@ -121,18 +87,47 @@ double avgSalary = people.Average(p => p.Salary); // Average salary
 int maxAge = people.Max(p => p.Age); // Oldest age
 ```
 
-#### 7. First, Last, Single
+## 2. Filtering (Where)
+Select people older than 25.
+
+```csharp
+var olderThan25 = people.Where(p => p.Age > 25);
+```
+
+#### 3. Sorting (OrderBy, ThenBy)
+Sort people by age, then by name.
+
+
+```csharp
+var sortedPeople = people.OrderBy(p => p.Age).ThenBy(p => p.Name);
+```
+
+#### 4. Selecting Specific Fields (Select)
+Get a list of names and salaries.
+
+```csharp
+var namesAndSalaries = people.Select(p => new { p.Name, p.Salary });
+```
+
+#### 5. Grouping (GroupBy)
+Group people by age.
+
+
+```csharp
+var groupedByAge = people.GroupBy(p => p.Age).Select(g => new { Age = g.Key, People = g });
+```
+
+
+#### 6. First, Last, Single
 Get specific elements.
 
 ```csharp
 Person firstPerson = people.First(); // First person
 Person lastPerson = people.Last(); // Last person
 Person singlePerson = people.Single(p => p.Id == 1); // Person with Id 1
-// Use FirstOrDefault, LastOrDefault, SingleOrDefault to avoid exceptions
-Person firstOrNull = people.FirstOrDefault(p => p.Age > 40); // Null if not found
 ```
 
-#### 8. Any and All
+#### 7. Any and All
 Check conditions.
 
 ```csharp
@@ -148,28 +143,73 @@ bool allHighEarners = people.All(p => p.Salary > 40000); // True if all earn > 4
 
 ### Endpoints
 ```javascript
-const express = require('express');
+import express from "express";
+import mysql from "mysql2";
+import cors from "cors";
+
 const app = express();
 const port = 3000;
 
-app.get('/hello', (req, res) => {
-    res.send(`Hello!`);
+app.use(express.json());
+app.use(cors());
+
+const db = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "namedays",
 });
 
-const result = await connection.execute(
-    'SELECT nev1, nev2 FROM nevnap WHERE ho = ? AND nap = ?',
-    [ho, napSzam]
-);
+// API endpoint to get nameday by date
+app.get("/api/nameday/", (req, res) => {
+  // Extract "date" from query parameter
+  const date = req.query.date;
+
+  // Check if date is specified
+  if (!date) {
+    return res.status(400).json({ error: "Date parameter is required" });
+  }
+
+  // get the month and day
+  const month = date.split("-")[0];
+  const monthName = convertMonthNumberToName(month);
+  const day = date.split("-")[1];
+  const sql = SELECT name1, name2 FROM nameday WHERE month = ${month} AND day = ${day};
+
+db.query(sql, (err, result) => {
+    if (err) {
+      console.log("Server error");
+    }
+    if (result.length === 0) {
+      console.log("No nameday found");
+    }
+    const nameday = result[0];
+
+// Send response with formatted date and nameday data
+    res.json({
+      date: `${monthName} ${day}.`,
+      name1: nameday.name1,
+      name2: nameday.name2,
+    });
+  });
+});
+
+// Function to convert month number to month name
+function convertMonthNumberToName(monthNumber) {
+  switch (monthNumber) {
+    case "1":
+      return "January";
+    case "2":
+      return "February";
+    ...
+  }
+}
+
 
 app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+  console.log(`Server is running on port ${port}`);
 });
 
-app.post('/adatok', (req, res) => {
-    const ujAdat = req.body;
-    adatok.push(ujAdat);
-    res.status(201).json(ujAdat);
-});
 ```
 
 ## Frontend
