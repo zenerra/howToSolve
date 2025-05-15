@@ -217,4 +217,68 @@ app.listen(port, () => {
 ```
 
 ## Frontend
-*(Empty for now)*
+### Display and submit cards dynamically using Bootstrap
+```html
+   <form id="dateForm" class="mb-4">
+      <div class="row g-3 align-items-end">
+        <div class="col-auto">
+          <label for="dateInput" class="form-label">Select Date:</label>
+          <input type="date" id="dateInput" class="form-control" required>
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary">Get Nameday</button>
+        </div>
+      </div>
+    </form>
+
+
+    <div id="namedayCards" class="row row-cols-1 row-cols-md-2 g-4"></div> // Place for the cards
+
+
+    <script>
+    // Handle form submission
+    document.getElementById('dateForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const date = document.getElementById('dateInput').value;
+      if (!date) return;
+
+      // Clear previous cards
+      const cardContainer = document.getElementById('namedayCards');
+      cardContainer.innerHTML = '';
+
+      // Fetch data from API
+      try {
+        const response = await fetch(`http://localhost:3000/api/nameday/?date=${date}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch nameday data');
+        }
+        const data = await response.json();
+
+        // Check for error response
+        if (data.error) {
+          cardContainer.innerHTML = `<div class="alert alert-warning">${data.error}</div>`;
+          return;
+        }
+
+        // Create Bootstrap cards for each name
+        const names = [data.name1, data.name2];
+        names.forEach(name => {
+          const card = document.createElement('div');
+          card.className = 'col';
+          card.innerHTML = `
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">${name}</h5>
+                <p class="card-text">Nameday on ${data.date}</p>
+              </div>
+            </div>
+          `;
+          cardContainer.appendChild(card);
+        });
+      } catch (error) {
+        console.error('Error:', error);
+        cardContainer.innerHTML = `<div class="alert alert-danger">Error fetching data</div>`;
+      }
+    });
+  </script>
+```
