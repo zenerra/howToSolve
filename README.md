@@ -21,10 +21,10 @@ Replace(',','-');  // 2019-2-12
 Trim('-');  // 2019212 
 Split(',');  // {apple, banana, orange}
 Contains("YES") // returns true
-```
 
 char[] nameArray = {'A', 'l', 'i', 'c', 'e'};
 string name = new string(nameArray);
+```
 
 ### Classes and Constructors
 ```csharp
