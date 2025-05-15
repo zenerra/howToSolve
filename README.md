@@ -15,6 +15,15 @@
 
 ## Desktop
 
+### Text manipulation
+Replace(',','-');  // 2019-2-12
+Trim('-');  // 2019212 
+Split(',');  // {apple, banana, orange}
+Contains("YES") // returns true
+
+char[] nameArray = {'A', 'l', 'i', 'c', 'e'};
+string name = new string(nameArray);
+
 ### Classes and Constructors
 ```csharp
  class Person
@@ -24,7 +33,7 @@
      public string name { get; set; }
      public DateTime date { get; set; }
 
-     public Sportolo(int id, double average, string name, DateTime date)
+     public Person(int id, double average, string name, DateTime date)
      {
          this.id = id;
          this.average = average;
