@@ -217,6 +217,13 @@ function convertMonthNumberToName(monthNumber) {
   }
 }
 
+// Delete data by ID
+app.delete("/api/nameday/:id", async (req, res)=>{
+ const id = req.params.id; // Extracts the ID from the URL parameter, e.g., /api/nameday/123
+  const sql = "DELETE FROM nameday WHERE id = ?";
+  const [result] = await database.execute(sql, [id]);
+  res.status(200).json(result);
+})
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
