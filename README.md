@@ -2,12 +2,18 @@
 
 ## General Guide
 
-### Useful Webpages
+#### Useful Webpages
 - [StackOverflow](https://stackoverflow.com/)
 - [W3Schools](https://www.w3schools.com/)
 - [Bootstrap](https://getbootstrap.com/)
 
-### If XAMPP Won't Start
+#### VSC Extensions:
+- EasyZoom
+- Live Server
+- Thunder Client
+- Auto Rename Tag 
+
+#### If XAMPP Won't Start
 1. Navigate to: `C:\xampp\mysql\backup`
 2. Press `Ctrl + X` to cut the contents
 3. Navigate to: `C:\xampp\mysql\data`
