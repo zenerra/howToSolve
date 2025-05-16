@@ -13,7 +13,8 @@
 3. Navigate to: `C:\xampp\mysql\data`
 4. Press `Ctrl + A` to select all, then `Ctrl + P` to paste
 
-## Desktop
+## Desktop 
+Target finish time: **~1h 25min**
 
 ### Text manipulation
 ```csharp
@@ -144,6 +145,7 @@ bool allHighEarners = people.All(p => p.Salary > 40000); // True if all earn > 4
 - **Debugging**: Break complex queries into smaller steps.
 
 ## Backend
+Target finish time: **~1h**
 
 ### Endpoints
 ```javascript
@@ -217,8 +219,15 @@ app.listen(port, () => {
 ```
 
 ## Frontend
+Target finish time: **~1h 30min**
 ### Display and submit cards dynamically using Bootstrap
+
 ```html
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+```
+
+```html
+<div class="container">  <!-- To make the page responsive -->
    <form id="dateForm" class="mb-4">
       <div class="row g-3 align-items-end">
         <div class="col-auto">
@@ -230,6 +239,7 @@ app.listen(port, () => {
         </div>
       </div>
     </form>
+</div>
 
 
     <div id="namedayCards" class="row row-cols-1 row-cols-md-2 g-4"></div> // Place for the cards
