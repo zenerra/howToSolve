@@ -220,12 +220,13 @@ app.listen(port, () => {
 
 ## Frontend
 Target finish time: **~1h 30min**
-### Display and submit cards dynamically using Bootstrap
 
+### Import Bootstrap
 ```html
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 ```
 
+### Display and submit cards dynamically using Bootstrap
 ```html
 <div class="container">  <!-- To make the page responsive -->
    <form id="dateForm" class="mb-4">
