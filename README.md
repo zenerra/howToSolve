@@ -5,8 +5,8 @@
 ### Setup Project Directory
 
 ```bash
-mkdir "Project name here"
-cd "Project name here"
+mkdir "Project name"
+cd "Project name"
 
 mkdir backend
 mkdir "subdirectory2"
