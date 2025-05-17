@@ -87,6 +87,17 @@ using (StreamWriter sw = File.CreateText("filename.txt"))
 using System.Linq;
 ```
 
+```csharp
+foreach (var group in groupedByYear)
+{
+    Console.WriteLine($"Year: {group.Year}");
+    foreach (var person in group.People)
+    {
+        Console.WriteLine($" - {person.Name}");
+    }
+}
+```
+
 #### 1. Aggregation (Count, Sum, Average, Max, Min)
 Calculate statistics.
 
