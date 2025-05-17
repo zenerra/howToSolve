@@ -69,7 +69,7 @@ using (StreamReader sr = new StreamReader("filename.txt"))
         double atlag = double.Parse(data[1]);
         string name = data[2];
         DateTime date = Convert.ToDateTime(data[3]);
-        Person personList = new Person(id, average, name, date);
+        Person person = new Person(id, average, name, date);
         peopleList.Add(person);
     }
 }
