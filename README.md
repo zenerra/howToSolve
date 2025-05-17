@@ -164,6 +164,41 @@ bool allHighEarners = people.All(p => p.Salary > 40000); // True if all earn > 4
 ## Backend
 Target finish time: **~1h**
 
+### Setup Node.js Express
+
+#### Setup express inside backend folder
+```bash
+cd backend
+npm install express mysql2 cors
+npm pkg set type=module
+```
+
+#### Creates app.js (index.js) file with basic content inside backend folder
+```bash
+cd backend
+echo "import express from 'express';" > app.js
+echo "import cors from 'cors';" >> app.js
+echo "import mysql from 'mysql2';" >> app.js
+echo "" >> app.js
+echo "const app = express();" >> app.js
+echo "app.use(cors());" >> app.js
+echo "app.use(express.json());" >> app.js
+echo "" >> app.js
+echo "const db = mysql.createConnection({" >> app.js
+echo "    host: 'localhost'," >> app.js
+echo "    user: 'root'," >> app.js
+echo "    password: ''," >> app.js
+echo "    database: '', // Replace with your database name" >> app.js
+echo "    port: 3306" >> app.js
+echo "});" >> app.js
+echo "" >> app.js
+echo "// vegpontok" >> app.js
+echo "" >> app.js
+echo "app.listen(3000, () => {" >> app.js
+echo "    console.log('Server is running on http://localhost:3000');" >> app.js
+echo "});" >> app.js
+```
+
 ### Endpoints
 ```javascript
 import express from "express";
