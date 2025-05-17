@@ -67,6 +67,9 @@ Math.Round(number, 2)); // 5.43529 -> 5.44 (Honorable mention: Floor(), Ceiling(
 
 ### Reading a File
 ```csharp
+using System.IO;
+```
+```csharp
 List<Person> peopleList = new List<Person>();
 
 using (StreamReader sr = new StreamReader("filename.txt"))
