@@ -5,12 +5,12 @@
 ### Setup Project Directory
 
 ```bash
-mkdir "main directory name here"
-cd "main directory name here"
+mkdir "Project name here"
+cd "Project name here"
 
 mkdir backend
-mkdir "subdirectory 1 here"
-mkdir "subdirectory 2 here"
+mkdir "subdirectory2"
+mkdir "subdirectory3"
 ```
 
 #### Useful Webpages
