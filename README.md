@@ -177,15 +177,11 @@ Target finish time: **~1h**
 
 
 ### Setup Node.js Express
-#### Install express inside backend folder
+#### Installs necessary packages inside backend folder and creates app.js/index.js file with basic content 
 ```bash
 cd backend
 npm install express mysql2 cors
 npm pkg set type=module
-```
-
-#### Creates app.js/index.js file with basic content inside backend folder
-```bash
 cd backend
 echo "import express from 'express';" > app.js
 echo "import cors from 'cors';" >> app.js
