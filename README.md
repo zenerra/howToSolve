@@ -2,7 +2,7 @@
 
 ## General Guide
 
-### Setup Project Directory inside terminal
+### Create Project Directory inside terminal
 
 ```bash
 mkdir "Project name"
