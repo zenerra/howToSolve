@@ -33,19 +33,6 @@ mkdir "subdirectory3"
 ## Desktop 
 Target finish time: **~1h 25min**
 
-### Text manipulation
-```csharp
-Replace(',','-');  // 2019-2-12
-Trim('-');  // 2019212 
-Split(',');  // {apple, banana, orange}
-Contains("YES") // returns true
-
-char[] nameArray = {'A', 'l', 'i', 'c', 'e'};
-string name = new string(nameArray);
-
-Math.Round(number, 2)); // 5.43529 -> 5.44 (Honorable mention: Floor(), Ceiling())
-```
-
 ### Classes and Constructors
 ```csharp
  class Person
@@ -63,6 +50,19 @@ Math.Round(number, 2)); // 5.43529 -> 5.44 (Honorable mention: Floor(), Ceiling(
          this.date = date;
      }
  }
+```
+
+### Text manipulation
+```csharp
+Replace(',','-');  // 2019-2-12
+Trim('-');  // 2019212 
+Split(',');  // {apple, banana, orange}
+Contains("YES") // returns true
+
+char[] nameArray = {'A', 'l', 'i', 'c', 'e'};
+string name = new string(nameArray);
+
+Math.Round(number, 2)); // 5.43529 -> 5.44 (Honorable mention: Floor(), Ceiling())
 ```
 
 ### Reading a File
